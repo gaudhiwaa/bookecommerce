@@ -7,19 +7,15 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import EmailIcon from "@mui/icons-material/Email";
 import Button from "@mui/material/Button";
 import BookIcon from "@mui/icons-material/Book";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import { NavBar_biografi, NavBar_book, NavBar_cariBuku, NavBar_daftar, NavBar_fiksi, NavBar_kategori, NavBar_kesehatanDanFitness, NavBar_masuk, NavBar_misteri, NavBar_pengembanganDiri, NavBar_sciFi, NavBar_store } from "../../constants/TypographyConstant";
+import { COLOR_WHITE, COLOR_GREEN_PRIMARY } from "../../constants/ThemeConstant";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -37,18 +33,8 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const Bar = styled(Toolbar)(({ theme }) => ({
-  backgroundColor: "white",
+const Bar = styled(Toolbar)(() => ({
+  backgroundColor: COLOR_WHITE,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -66,103 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
   const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          //   color="inherit"
-          sx={{ color: "green" }}
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
 
   const [windowDimenion, detectHW] = React.useState({
     winWidth: window.innerWidth,
@@ -187,54 +77,24 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box
-        sx={{
-          display: "flex",
-          backgroundColor: "green",
-          height: "40px",
-          justifyContent: "space-between",
-          paddingTop:"-5px"
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <PhoneAndroidIcon />
-          <Typography sx={{ fontSize: "10px" }}>
-            Download Bookstore App
-          </Typography>
-        </Box>
-        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '300px'}}>
-          <Typography sx={{ color: "white", fontSize: "11px" }}>
-            Tentang Bookstore
-          </Typography>
-          <Typography sx={{ color: "white", fontSize: "11px" }}>
-            Mitra Bookstore
-          </Typography>
-          <Typography sx={{ color: "white", fontSize: "11px" }}>
-            Promo
-          </Typography>
-          <Typography sx={{ color: "white", fontSize: "11px" }}>
-           Bookstore Care
-          </Typography>
-        </Box>
-      </Box>
       <AppBar position="static" sx={{ marginTop: -1.5 }}>
         <Bar>
           <Toolbar>
             <BookIcon
-              sx={{ marginTop: "-2px", marginRight: "2px", color: "green" }}
+              sx={{ marginTop: "-2px", marginRight: "2px", color: COLOR_GREEN_PRIMARY }}
             />
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: "none", sm: "block", color: "green" } }}
+              sx={{ display: { xs: "none", sm: "block", color: COLOR_GREEN_PRIMARY } }}
             >
               <Typography
                 sx={{ display: "inline", fontSize: "20px", fontWeight: "bold" }}
               >
-                Book
+                {NavBar_book}
               </Typography>
-              store
+              {NavBar_store}
             </Typography>
             <Typography
               variant="h6"
@@ -244,14 +104,13 @@ export default function NavBar() {
                 display: {
                   xs: "none",
                   sm: "block",
-                  marginLeft: "10px",
                   fontSize: "11px",
                   color: "#6C727C",
                   marginLeft: "20px",
                 },
               }}
             >
-              Kategori
+              {NavBar_kategori}
             </Typography>
 
             <Box sx={{}}>
@@ -265,7 +124,7 @@ export default function NavBar() {
               >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <StyledInputBase
-                    placeholder="Cari buku pemrograman"
+                    placeholder={NavBar_cariBuku}
                     inputProps={{ "aria-label": "search" }}
                     sx={{
                       marginLeft: "-35px",
@@ -276,7 +135,6 @@ export default function NavBar() {
                           ? windowDimenion.winWidth * 0.57
                           : windowDimenion.winWidth * 0.68,
                       marginTop: "-1px",
-                      // backgroundColor: '#F2F3F4'
                     }}
                   />
                   <Box
@@ -308,27 +166,23 @@ export default function NavBar() {
                 }}
               >
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Pengembangan Diri
+                  {NavBar_pengembanganDiri}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Fiksi
+                  {NavBar_fiksi}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Biografi
+                  {NavBar_biografi}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Misteri
+                {NavBar_misteri}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Kesehatan & Fitness
+                {NavBar_kesehatanDanFitness}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                  Sci-Fi
+                {NavBar_sciFi}
                 </Typography>
-                {/* <Typography sx={{color: '#6C727C', fontSize: '11px'}}>Memasak</Typography>
-                <Typography sx={{color: '#6C727C', fontSize: '11px'}}>Romansa</Typography>
-                <Typography sx={{color: '#6C727C', fontSize: '11px'}}>Sejarah</Typography>
-                <Typography sx={{color: '#6C727C', fontSize: '11px'}}>Petualangan</Typography> */}
               </Box>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
@@ -381,17 +235,6 @@ export default function NavBar() {
                   }}
                 />
               </Box>
-              {/* <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle sx={{ color: "#6C727C" }} />
-              </IconButton> */}
               <Box
                 sx={{
                   display: "flex",
@@ -402,16 +245,20 @@ export default function NavBar() {
                 <Button
                   variant="outlined"
                   sx={{
-                    color: "green",
-                    border: "1px solid green",
+                    color: COLOR_GREEN_PRIMARY,
+                    border: "1px solid" + COLOR_GREEN_PRIMARY,
                     borderRadius: "8px",
                     textTransform: "none",
                     fontSize: "12px",
                     fontWeight: "bold",
                     height: "30px",
+                    ':hover': {
+                      bgcolor: COLOR_WHITE,
+                      color: COLOR_GREEN_PRIMARY,
+                    },
                   }}
                 >
-                  Masuk
+                  {NavBar_masuk}
                 </Button>
               </Box>
               <Box
@@ -425,15 +272,19 @@ export default function NavBar() {
                   variant="contained"
                   sx={{
                     color: "white",
-                    backgroundColor: "green",
+                    backgroundColor: COLOR_GREEN_PRIMARY,
                     borderRadius: "8px",
                     textTransform: "none",
                     fontSize: "12px",
                     fontWeight: "bold",
                     height: "30px",
+                    ':hover': {
+                      bgcolor: COLOR_GREEN_PRIMARY,
+                      color: COLOR_WHITE,
+                    },
                   }}
                 >
-                  Daftar
+                  {NavBar_daftar}
                 </Button>
               </Box>
             </Box>
@@ -443,7 +294,6 @@ export default function NavBar() {
                 aria-label="show more"
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
                 color="inherit"
               >
                 <MoreIcon />
@@ -452,8 +302,6 @@ export default function NavBar() {
           </Toolbar>
         </Bar>
       </AppBar>
-      {/* {renderMobileMenu}
-      {renderMenu} */}
     </Box>
   );
 }
