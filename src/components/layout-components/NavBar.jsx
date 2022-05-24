@@ -14,6 +14,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import EmailIcon from "@mui/icons-material/Email";
 import Button from "@mui/material/Button";
 import BookIcon from "@mui/icons-material/Book";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {
   NavBar_biografi,
   NavBar_book,
@@ -31,6 +33,7 @@ import {
 import {
   COLOR_WHITE,
   COLOR_GREEN_PRIMARY,
+  COLOR_GREY_PRIMARY,
 } from "../../constants/ThemeConstant";
 
 const Search = styled("div")(({ theme }) => ({
@@ -134,7 +137,7 @@ export default function NavBar() {
                   xs: "none",
                   sm: "block",
                   fontSize: "11px",
-                  color: "#6C727C",
+                  color: COLOR_GREY_PRIMARY,
                   marginLeft: "20px",
                 },
               }}
@@ -158,7 +161,7 @@ export default function NavBar() {
                     inputProps={{ "aria-label": "search" }}
                     sx={{
                       marginLeft: "-35px",
-                      color: "#6C727C",
+                      color: COLOR_GREY_PRIMARY,
                       fontSize: "12px",
                       minWidth:
                         windowDimenion.winWidth < 1500
@@ -196,22 +199,34 @@ export default function NavBar() {
                   width: "400px",
                 }}
               >
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_pengembanganDiri}
                 </Typography>
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_fiksi}
                 </Typography>
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_biografi}
                 </Typography>
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_misteri}
                 </Typography>
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_kesehatanDanFitness}
                 </Typography>
-                <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
+                <Typography
+                  sx={{ color: COLOR_GREY_PRIMARY, fontSize: "11px" }}
+                >
                   {NavBar_sciFi}
                 </Typography>
               </Box>
@@ -227,7 +242,7 @@ export default function NavBar() {
               >
                 <Badge badgeContent={0} color="error">
                   <ShoppingCartIcon
-                    sx={{ color: "#6C727C", fontSize: "18px" }}
+                    sx={{ color: COLOR_GREY_PRIMARY, fontSize: "18px" }}
                   />
                 </Badge>
               </IconButton>
@@ -239,7 +254,7 @@ export default function NavBar() {
               >
                 <Badge badgeContent={0} color="error">
                   <NotificationsIcon
-                    sx={{ color: "#6C727C", fontSize: "18px" }}
+                    sx={{ color: COLOR_GREY_PRIMARY, fontSize: "18px" }}
                   />
                 </Badge>
               </IconButton>
@@ -250,7 +265,9 @@ export default function NavBar() {
                 sx={{ marginLeft: "-20x" }}
               >
                 <Badge badgeContent={0} color="error">
-                  <EmailIcon sx={{ color: "#6C727C", fontSize: "18px" }} />
+                  <EmailIcon
+                    sx={{ color: COLOR_GREY_PRIMARY, fontSize: "18px" }}
+                  />
                 </Badge>
               </IconButton>
 
@@ -275,55 +292,84 @@ export default function NavBar() {
               <Box
                 sx={{
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
                   marginLeft: "20px",
+                  marginTop: "20px",
+                  justifyContent: "flex-start",
                 }}
               >
-                <Button
-                  variant="outlined"
-                  sx={{
-                    color: COLOR_GREEN_PRIMARY,
-                    border: "1px solid" + COLOR_GREEN_PRIMARY,
-                    borderRadius: "8px",
-                    textTransform: "none",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                    height: "30px",
-                    ":hover": {
-                      bgcolor: COLOR_WHITE,
+                <Box sx={{ display: "flex" }}>
+                  <Button
+                    variant="outlined"
+                    sx={{
                       color: COLOR_GREEN_PRIMARY,
                       border: "1px solid" + COLOR_GREEN_PRIMARY,
-                    },
-                  }}
-                >
-                  {NavBar_masuk}
-                </Button>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginLeft: "10px",
-                }}
-              >
-                <Button
-                  variant="contained"
+                      borderRadius: "8px",
+                      textTransform: "none",
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      height: "30px",
+                      ":hover": {
+                        bgcolor: COLOR_WHITE,
+                        color: COLOR_GREEN_PRIMARY,
+                        border: "1px solid" + COLOR_GREEN_PRIMARY,
+                      },
+                    }}
+                  >
+                    {NavBar_masuk}
+                  </Button>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginLeft: "10px",
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      sx={{
+                        color: "white",
+                        backgroundColor: COLOR_GREEN_PRIMARY,
+                        borderRadius: "8px",
+                        textTransform: "none",
+                        fontSize: "12px",
+                        fontWeight: "bold",
+                        height: "30px",
+                        ":hover": {
+                          bgcolor: COLOR_GREEN_PRIMARY,
+                          color: COLOR_WHITE,
+                        },
+                      }}
+                    >
+                      {NavBar_daftar}
+                    </Button>
+                  </Box>
+                </Box>
+
+                <Box
                   sx={{
-                    color: "white",
-                    backgroundColor: COLOR_GREEN_PRIMARY,
-                    borderRadius: "8px",
-                    textTransform: "none",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                    height: "30px",
-                    ":hover": {
-                      bgcolor: COLOR_GREEN_PRIMARY,
-                      color: COLOR_WHITE,
-                    },
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "flex-end",
+                    alignItems: 'center'
+                    
                   }}
                 >
-                  {NavBar_daftar}
-                </Button>
+                  <LocationOnIcon sx={{ fontSize: "10px", color: COLOR_GREY_PRIMARY, marginTop: '2px', marginRight: '2px'}} />
+                  <Typography
+                    sx={{
+                      color: COLOR_GREY_PRIMARY,
+                      fontSize: "11px",
+                      marginTop: "7px",
+                      marginBottom: "1px",
+                    }}
+                  >
+                    Dikirim ke {""}
+                    <Typography sx={{ fontWeight: "bold", display: 'inline',fontSize: "11px",}}>Rumah</Typography>
+                    <KeyboardArrowDownIcon sx={{ fontSize: "10px",}}/>
+                  </Typography>
+                </Box>
               </Box>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
