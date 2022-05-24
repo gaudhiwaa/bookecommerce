@@ -14,8 +14,24 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import EmailIcon from "@mui/icons-material/Email";
 import Button from "@mui/material/Button";
 import BookIcon from "@mui/icons-material/Book";
-import { NavBar_biografi, NavBar_book, NavBar_cariBuku, NavBar_daftar, NavBar_fiksi, NavBar_kategori, NavBar_kesehatanDanFitness, NavBar_masuk, NavBar_misteri, NavBar_pengembanganDiri, NavBar_sciFi, NavBar_store } from "../../constants/TypographyConstant";
-import { COLOR_WHITE, COLOR_GREEN_PRIMARY } from "../../constants/ThemeConstant";
+import {
+  NavBar_biografi,
+  NavBar_book,
+  NavBar_cariBuku,
+  NavBar_daftar,
+  NavBar_fiksi,
+  NavBar_kategori,
+  NavBar_kesehatanDanFitness,
+  NavBar_masuk,
+  NavBar_misteri,
+  NavBar_pengembanganDiri,
+  NavBar_sciFi,
+  NavBar_store,
+} from "../../constants/TypographyConstant";
+import {
+  COLOR_WHITE,
+  COLOR_GREEN_PRIMARY,
+} from "../../constants/ThemeConstant";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -80,14 +96,25 @@ export default function NavBar() {
       <AppBar position="static" sx={{ marginTop: -1.5 }}>
         <Bar>
           <Toolbar>
+            {/* title */}
             <BookIcon
-              sx={{ marginTop: "-2px", marginRight: "2px", color: COLOR_GREEN_PRIMARY }}
+              sx={{
+                marginTop: "-2px",
+                marginRight: "2px",
+                color: COLOR_GREEN_PRIMARY,
+              }}
             />
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: "none", sm: "block", color: COLOR_GREEN_PRIMARY } }}
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                  color: COLOR_GREEN_PRIMARY,
+                },
+              }}
             >
               <Typography
                 sx={{ display: "inline", fontSize: "20px", fontWeight: "bold" }}
@@ -96,6 +123,8 @@ export default function NavBar() {
               </Typography>
               {NavBar_store}
             </Typography>
+
+            {/* category */}
             <Typography
               variant="h6"
               noWrap
@@ -113,7 +142,8 @@ export default function NavBar() {
               {NavBar_kategori}
             </Typography>
 
-            <Box sx={{}}>
+            {/* search */}
+            <Box>
               <Search
                 sx={{
                   border: "1px solid #E5E7E9",
@@ -154,6 +184,7 @@ export default function NavBar() {
                 </Box>
               </Search>
 
+              {/* category list */}
               <Box
                 sx={{
                   display: "flex",
@@ -175,17 +206,19 @@ export default function NavBar() {
                   {NavBar_biografi}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                {NavBar_misteri}
+                  {NavBar_misteri}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                {NavBar_kesehatanDanFitness}
+                  {NavBar_kesehatanDanFitness}
                 </Typography>
                 <Typography sx={{ color: "#6C727C", fontSize: "11px" }}>
-                {NavBar_sciFi}
+                  {NavBar_sciFi}
                 </Typography>
               </Box>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
+
+            {/* shop & notification */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
                 size="large"
@@ -220,6 +253,8 @@ export default function NavBar() {
                   <EmailIcon sx={{ color: "#6C727C", fontSize: "18px" }} />
                 </Badge>
               </IconButton>
+
+              {/* divider */}
               <Box
                 sx={{
                   display: "flex",
@@ -235,6 +270,8 @@ export default function NavBar() {
                   }}
                 />
               </Box>
+
+              {/* login & register */}
               <Box
                 sx={{
                   display: "flex",
@@ -252,9 +289,10 @@ export default function NavBar() {
                     fontSize: "12px",
                     fontWeight: "bold",
                     height: "30px",
-                    ':hover': {
+                    ":hover": {
                       bgcolor: COLOR_WHITE,
                       color: COLOR_GREEN_PRIMARY,
+                      border: "1px solid" + COLOR_GREEN_PRIMARY,
                     },
                   }}
                 >
@@ -278,7 +316,7 @@ export default function NavBar() {
                     fontSize: "12px",
                     fontWeight: "bold",
                     height: "30px",
-                    ':hover': {
+                    ":hover": {
                       bgcolor: COLOR_GREEN_PRIMARY,
                       color: COLOR_WHITE,
                     },

@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import Home from './views/pages/Home';
 
 function App() {
