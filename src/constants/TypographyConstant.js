@@ -10,3 +10,11 @@ export const NavBar_biografi = "Biografi"
 export const NavBar_misteri = "Misteri"
 export const NavBar_kesehatanDanFitness = "Kesehatan dan Fitness"
 export const NavBar_sciFi = "Sci-Fi"
+
+export const CategorySection_KategoriPilihan = "Kategori Pilihan"
+export const CategorySection_PelayananKami = "Pelayanan Kami"
+export const CategorySection_BukuBerkualitas = "Buku berkualitas"
+export const CategorySection_SelaluAda = "Selalu ada yang diskon!"
+export const CategorySection_PengirimanSeluruh = "Pengiriman internasional"
+export const CategorySection_KirimKemanapun = "Kirim kemanapun kamu mau"
+
